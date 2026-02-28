@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS flyway_sanity
+(
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    message    VARCHAR(255) NOT NULL DEFAULT 'Flyway is working!',
+    created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
