@@ -1,0 +1,190 @@
+.section {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e5e7eb;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+  color: #111827;
+}
+
+/* ── Add form ─────────────────────────────────────────────── */
+.addForm {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.addRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.addField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 100px;
+  flex: 1;
+}
+
+.addFieldCheck {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-bottom: 0.1rem;
+}
+
+.addLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.optional {
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+.addInput {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  font-size: 0.88rem;
+  background: #fff;
+}
+.addInput:focus { outline: 2px solid #2563eb; border-color: transparent; }
+
+.inputError { border-color: #ef4444 !important; }
+
+.fieldError {
+  font-size: 0.78rem;
+  color: #b91c1c;
+}
+
+.addError {
+  font-size: 0.85rem;
+  color: #b91c1c;
+  margin-bottom: 0.5rem;
+}
+
+.btnAdd {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.btnAdd:hover:not(:disabled) { background: #1d4ed8; }
+.btnAdd:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Table ───────────────────────────────────────────────── */
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th {
+  background: #f9fafb;
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+
+.table tr:last-child td { border-bottom: none; }
+.table tbody tr:hover { background: #fafafa; }
+
+.editRow { background: #eff6ff !important; }
+
+.skuCell  { font-family: monospace; font-size: 0.85rem; white-space: nowrap; }
+.priceCell { font-weight: 600; white-space: nowrap; }
+.stockCell { text-align: center; font-weight: 500; }
+.na { color: #9ca3af; }
+
+/* Inline edit inputs inside cells */
+.cellInput {
+  width: 100%;
+  min-width: 60px;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #93c5fd;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  background: #fff;
+}
+.cellInput:focus { outline: 2px solid #2563eb; border-color: transparent; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.active   { background: #dcfce7; color: #166534; }
+.inactive { background: #fee2e2; color: #991b1b; }
+
+/* Action buttons */
+.actions { display: flex; gap: 0.4rem; }
+
+.btnSm {
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btnEdit   { background: #e0f2fe; color: #0369a1; }
+.btnEdit:hover { background: #bae6fd; }
+.btnDelete { background: #fee2e2; color: #b91c1c; }
+.btnDelete:hover { background: #fecaca; }
+.btnSave   { background: #dcfce7; color: #166534; }
+.btnSave:hover { background: #bbf7d0; }
+.btnCancel { background: #f3f4f6; color: #374151; }
+.btnCancel:hover { background: #e5e7eb; }
+
+/* States */
+.error {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+}
+
+.hint {
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  margin: 0;
+}

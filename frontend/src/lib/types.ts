@@ -20,3 +20,14 @@ export interface Product {
   shippingClass: ShippingClass;
   category: CategorySummary;
 }
+
+export interface Variant {
+  id: number;
+  productId: number;
+  sku: string;
+  color: string | null;
+  size: string | null;
+  pricePaisa: number;
+  stockQty: number;
+  active: boolean;
+}

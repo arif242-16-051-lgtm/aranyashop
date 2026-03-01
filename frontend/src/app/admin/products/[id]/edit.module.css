@@ -1,0 +1,31 @@
+.page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: system-ui, sans-serif;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.formCol {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.variantsCol {
+  min-width: 0; /* allow table to scroll inside */
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+  .formCol {
+    position: static;
+  }
+}

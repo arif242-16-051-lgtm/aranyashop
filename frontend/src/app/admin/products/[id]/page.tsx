@@ -5,7 +5,9 @@ import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { getJson, putJson } from "../../../../lib/api";
 import type { Product, Category } from "../../../../lib/types";
+import VariantsSection from "../VariantsSection";
 import styles from "../form.module.css";
+import pageStyles from "./edit.module.css";
 
 export default function EditProductPage() {
   const router = useRouter();
@@ -73,7 +75,7 @@ export default function EditProductPage() {
   if (loading) return <main className={styles.page}><p className={styles.hint}>Loading…</p></main>;
 
   return (
-    <main className={styles.page}>
+    <main className={pageStyles.page}>
       <div className={styles.header}>
         <h1 className={styles.title}>Edit Product</h1>
         <Link href="/admin/products" className={styles.back}>← Products</Link>
@@ -81,85 +83,95 @@ export default function EditProductPage() {
 
       {globalError && <div className={styles.error}>{globalError}</div>}
 
-      <form className={styles.form} onSubmit={handleSubmit}>
-        {/* Title */}
-        <div className={styles.field}>
-          <label htmlFor="title" className={styles.label}>Title *</label>
-          <input
-            id="title"
-            className={`${styles.input} ${errors.title ? styles.inputError : ""}`}
-            type="text"
-            value={title}
-            onChange={e => setTitle(e.target.value)}
-            disabled={saving}
-          />
-          {errors.title && <span className={styles.fieldError}>{errors.title}</span>}
+      <div className={pageStyles.columns}>
+        {/* Left: product form */}
+        <div className={pageStyles.formCol}>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            {/* Title */}
+            <div className={styles.field}>
+              <label htmlFor="title" className={styles.label}>Title *</label>
+              <input
+                id="title"
+                className={`${styles.input} ${errors.title ? styles.inputError : ""}`}
+                type="text"
+                value={title}
+                onChange={e => setTitle(e.target.value)}
+                disabled={saving}
+              />
+              {errors.title && <span className={styles.fieldError}>{errors.title}</span>}
+            </div>
+
+            {/* Description */}
+            <div className={styles.field}>
+              <label htmlFor="description" className={styles.label}>Description</label>
+              <textarea
+                id="description"
+                className={styles.textarea}
+                value={description}
+                onChange={e => setDescription(e.target.value)}
+                rows={4}
+                disabled={saving}
+              />
+            </div>
+
+            {/* Category */}
+            <div className={styles.field}>
+              <label htmlFor="category" className={styles.label}>Category *</label>
+              <select
+                id="category"
+                className={`${styles.select} ${errors.categoryId ? styles.inputError : ""}`}
+                value={categoryId}
+                onChange={e => setCategoryId(e.target.value)}
+                disabled={saving}
+              >
+                {categories.map(c => (
+                  <option key={c.id} value={String(c.id)}>{c.name}</option>
+                ))}
+              </select>
+              {errors.categoryId && <span className={styles.fieldError}>{errors.categoryId}</span>}
+            </div>
+
+            {/* Shipping class */}
+            <div className={styles.field}>
+              <label htmlFor="shipping" className={styles.label}>Shipping Class</label>
+              <select
+                id="shipping"
+                className={styles.select}
+                value={shippingClass}
+                onChange={e => setShippingClass(e.target.value)}
+                disabled={saving}
+              >
+                <option value="STANDARD">Standard</option>
+                <option value="FREE">Free</option>
+              </select>
+            </div>
+
+            {/* Active */}
+            <div className={styles.fieldRow}>
+              <input
+                id="active"
+                type="checkbox"
+                checked={active}
+                onChange={e => setActive(e.target.checked)}
+                disabled={saving}
+              />
+              <label htmlFor="active" className={styles.checkLabel}>Active</label>
+            </div>
+
+            <div className={styles.formActions}>
+              <button className={styles.btnPrimary} type="submit" disabled={saving}>
+                {saving ? "Saving…" : "Save Changes"}
+              </button>
+              <Link href="/admin/products" className={styles.btnCancel}>Cancel</Link>
+            </div>
+          </form>
         </div>
 
-        {/* Description */}
-        <div className={styles.field}>
-          <label htmlFor="description" className={styles.label}>Description</label>
-          <textarea
-            id="description"
-            className={styles.textarea}
-            value={description}
-            onChange={e => setDescription(e.target.value)}
-            rows={4}
-            disabled={saving}
-          />
+        {/* Right: variants */}
+        <div className={pageStyles.variantsCol}>
+          <VariantsSection productId={id} />
         </div>
-
-        {/* Category */}
-        <div className={styles.field}>
-          <label htmlFor="category" className={styles.label}>Category *</label>
-          <select
-            id="category"
-            className={`${styles.select} ${errors.categoryId ? styles.inputError : ""}`}
-            value={categoryId}
-            onChange={e => setCategoryId(e.target.value)}
-            disabled={saving}
-          >
-            {categories.map(c => (
-              <option key={c.id} value={String(c.id)}>{c.name}</option>
-            ))}
-          </select>
-          {errors.categoryId && <span className={styles.fieldError}>{errors.categoryId}</span>}
-        </div>
-
-        {/* Shipping class */}
-        <div className={styles.field}>
-          <label htmlFor="shipping" className={styles.label}>Shipping Class</label>
-          <select
-            id="shipping"
-            className={styles.select}
-            value={shippingClass}
-            onChange={e => setShippingClass(e.target.value)}
-            disabled={saving}
-          >
-            <option value="STANDARD">Standard</option>
-            <option value="FREE">Free</option>
-          </select>
-        </div>
-
-        {/* Active */}
-        <div className={styles.fieldRow}>
-          <input
-            id="active"
-            type="checkbox"
-            checked={active}
-            onChange={e => setActive(e.target.checked)}
-            disabled={saving}
-          />
-          <label htmlFor="active" className={styles.checkLabel}>Active</label>
-        </div>
-
-        <div className={styles.formActions}>
-          <button className={styles.btnPrimary} type="submit" disabled={saving}>
-            {saving ? "Saving…" : "Save Changes"}
-          </button>
-          <Link href="/admin/products" className={styles.btnCancel}>Cancel</Link>
-        </div>
-      </form>
+      </div>
     </main>
   );
 }
