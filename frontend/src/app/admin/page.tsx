@@ -8,6 +8,9 @@ export default function AdminPage() {
       <p className={styles.subtitle}>Manage your AranyaShop backend.</p>
       <ul className={styles.nav}>
         <li>
+          <Link href="/admin/products">📦 Products</Link>
+        </li>
+        <li>
           <Link href="/admin/categories">🗂 Categories</Link>
         </li>
         <li>
