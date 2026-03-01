@@ -1,0 +1,12 @@
+/* ── AranyaShop global base styles ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f9fafb;
+  color: #111827;
+  line-height: 1.6;
+}
+
+a { color: #2563eb; text-decoration: underline; }
+a:hover { color: #1d4ed8; }

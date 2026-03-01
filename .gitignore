@@ -35,3 +35,8 @@ build/
 ### Local secrets — use application-dev.example.yml as template ###
 src/main/resources/application-dev.yml
 src/main/resources/application.yml
+
+### Frontend — Next.js ###
+frontend/.env.local
+frontend/.next/
+frontend/node_modules/

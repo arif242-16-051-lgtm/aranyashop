@@ -1,0 +1,141 @@
+.page {
+  max-width: 900px;
+  margin: 48px auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.back {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-decoration: none;
+}
+.back:hover { color: #111827; }
+
+/* ── Create form ── */
+.form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.input {
+  flex: 1;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+.input:focus { border-color: #2563eb; box-shadow: 0 0 0 2px #bfdbfe; }
+
+.btnPrimary {
+  padding: 0.5rem 1.25rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btnPrimary:hover { background: #1d4ed8; }
+.btnPrimary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Table ── */
+.tableWrap { overflow-x: auto; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th {
+  text-align: left;
+  padding: 0.625rem 0.875rem;
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table td {
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+
+.table tr:hover td { background: #f9fafb; }
+
+.slug { color: #6b7280; font-size: 0.8rem; font-family: monospace; }
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.active   { background: #d1fae5; color: #065f46; }
+.inactive { background: #fee2e2; color: #991b1b; }
+
+/* ── Action buttons ── */
+.actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.btnSmall {
+  padding: 0.3rem 0.75rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.btnToggle  { background: #e0e7ff; color: #3730a3; }
+.btnToggle:hover { background: #c7d2fe; }
+
+.btnEdit    { background: #fef3c7; color: #92400e; }
+.btnEdit:hover { background: #fde68a; }
+
+.btnDelete  { background: #fee2e2; color: #b91c1c; }
+.btnDelete:hover { background: #fca5a5; }
+
+/* ── Inline edit ── */
+.inlineEdit { display: flex; gap: 0.5rem; align-items: center; }
+.inlineInput {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #93c5fd;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  width: 160px;
+}
+
+.btnSave   { background: #d1fae5; color: #065f46; }
+.btnSave:hover { background: #a7f3d0; }
+.btnCancel { background: #f3f4f6; color: #374151; }
+.btnCancel:hover { background: #e5e7eb; }
+
+/* ── States ── */
+.error {
+  background: #fff1f2;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  color: #b91c1c;
+  margin-bottom: 1rem;
+}
+
+.empty { color: #9ca3af; padding: 1.5rem 0; text-align: center; }
