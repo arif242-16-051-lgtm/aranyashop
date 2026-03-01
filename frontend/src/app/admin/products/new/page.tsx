@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { getJson, postJson } from "../../../../lib/api";
 import type { Category } from "../../../../lib/types";
-import styles from "./form.module.css";
+import styles from "../form.module.css";
 
 export default function NewProductPage() {
   const router = useRouter();
